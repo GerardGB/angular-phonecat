@@ -5,17 +5,19 @@ angular.module('phonecatApp', [
     'ngRoute',
     'ngMaterial',
     'ngMessages',
-    'phonecatList'
+    'phonecatList',
+    'phonecatDetail'
 ])
     .config(['$stateProvider', '$mdThemingProvider', function($stateProvider, $mdThemingProvider) {
         $stateProvider
             .state('phone-list', {
                 url: '/phone-list',
-                views: {
-                    'phone-list': {
-                        templateUrl: 'phone-list/phone-list.html',
-                        controller: 'PhoneListCtrl'
-                    }
-                }
+                templateUrl: 'phone-list/phone-list.html',
+                controller: 'PhoneListCtrl'
+            })
+            .state('phone-details', {
+                url: '/phone-details',
+                templateUrl: 'phone-details/phone-details.template.html',
+                controller: 'PhoneDetailCtrl'
             });
     }]);

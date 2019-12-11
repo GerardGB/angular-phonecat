@@ -1,10 +1,34 @@
 <div>
     <p>Total number of phones: {{phones.length}}</p>
-    <p> PHONES </p>
+    <div layout="row" layout-align="space-between start" style="width: 400px">
+        <div layout="column">
+            <md-input-container>
+                <label>Buscar:</label>
+                <input type="text" ng-model="buscar">
+            </md-input-container>
+        </div>
+        <div layout="row" layout-align="start center">
+            <label>Ordenar per:</label>
+            <md-select ng-model="ordreProp" style="padding-left: 10px">
+                <md-option value="name">Alfabètic</md-option>
+                <md-option value="-name">Alfabètic invers</md-option>
+                <md-option value="age">Novetat</md-option>
+                <md-option value="-age">Antiguitat</md-option>
+            </md-select>
+        </div>
+    </div>
+
     <ul>
-        <li ng-repeat="phone in phones">
-            <span>{{phone.name}}</span>
-            <p>{{phone.snippet}}</p>
+        <li ng-repeat="phone in phones | filter: buscar | orderBy: ordreProp" style="list-style: none;">
+            <md-card layout="row" layout-align="start center">
+                <a href="#!/phones/{{phone.id}}" class="thumb">
+                    <img ng-src="{{phone.imageUrl}}"  class="md-card-image" alt="image caption" alt="{{phone.name}}" />
+                </a>
+                <md-card-content>
+                    <a class="md-button md-primary" href="#!/phones/{{phone.id}}">{{phone.name}}</a>
+                    <p>{{phone.snippet}}</p>
+                </md-card-content>
+            </md-card>
         </li>
     </ul>
 </div>
