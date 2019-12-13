@@ -1,9 +1,7 @@
 'use strict';
 // Register `phoneList` component, along with its associated controller and template
-angular.module('phonecatList', [])
-    .controller('PhoneListCtrl', ['$scope', '$http', function PhoneListCtrl($scope, $http) {
-        $http.get('phones/phones.json').then(function (response) {
-            $scope.phones = response.data;
-        });
+angular.module('phonecatList', ['core.phone'])
+    .controller('PhoneListCtrl', ['$scope', '$http', 'Phone', function PhoneListCtrl($scope, $http, Phone) {
+        $scope.phones = Phone.query();
         $scope.ordreProp = 'age';
     }]);

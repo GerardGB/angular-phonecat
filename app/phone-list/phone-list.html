@@ -19,16 +19,16 @@
     </div>
 
     <ul>
-        <li ng-repeat="phone in phones | filter: buscar | orderBy: ordreProp" style="list-style: none;">
-            <md-card layout="row" layout-align="start center">
-                <a href="#!/phones/{{phone.id}}" class="thumb">
+        <li ng-repeat="phone in phones | filter: buscar | orderBy: ordreProp" class="thumbnail phone-list-item" style="list-style: none;">
+            <div layout="row" layout-align="start center">
+            <a href="#!/phones/{{phone.id}}" class="thumb">
                     <img ng-src="{{phone.imageUrl}}"  class="md-card-image" alt="image caption" alt="{{phone.name}}" />
                 </a>
-                <md-card-content>
+                <div>
                     <a class="md-button md-primary" href="#!/phones/{{phone.id}}">{{phone.name}}</a>
                     <p>{{phone.snippet}}</p>
-                </md-card-content>
-            </md-card>
+                </div>
+            </div>
         </li>
     </ul>
 </div>
